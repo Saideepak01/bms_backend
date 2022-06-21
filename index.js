@@ -5,7 +5,7 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 2001; //adding a port number to make a connection to the port
+// const PORT = process.env.PORT || 2001; //adding a port number to make a connection to the port
 const MONGO_URL = process.env.MONGO_URL; //connecting the mongoDB database
 
 //making a connection to start the server with the mongoclient
@@ -37,4 +37,8 @@ app.post("/", async (request, response) => {
 });
 
 //to start listening to the connection on the specified port
-app.listen(PORT, () => console.log("app is started"));
+// app.listen(PORT, () => console.log("app is started"));
+const server = app.listen(process.env.port || 2001, () => {
+  const port = server.address().port;
+  console.log("working" + port);
+});
