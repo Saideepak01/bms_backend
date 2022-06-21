@@ -28,7 +28,7 @@ app.get("/", async (request, response) => {
 });
 
 // add a new data using post method and send the data to the frontend
-app.post("/", async (request, response) => {
+app.post("/postData", async (request, response) => {
   const newData = request.body;
 
   const data = await client.db("bms").collection("bms_data").insertOne(newData);
@@ -40,5 +40,5 @@ app.post("/", async (request, response) => {
 // app.listen(PORT, () => console.log("app is started"));
 const server = app.listen(process.env.PORT || 2001, () => {
   const port = server.address().PORT;
-  console.log("working" + port);
+  console.log("working");
 });
