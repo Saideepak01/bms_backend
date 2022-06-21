@@ -38,7 +38,7 @@ app.post("/", async (request, response) => {
 
 //to start listening to the connection on the specified port
 // app.listen(PORT, () => console.log("app is started"));
-const server = app.listen(process.env.port || 2001, () => {
-  const port = server.address().port;
+const server = app.listen(process.env.PORT || 2001, () => {
+  const port = server.address().PORT;
   console.log("working" + port);
 });
